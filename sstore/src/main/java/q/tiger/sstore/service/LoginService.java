@@ -13,6 +13,7 @@ public class LoginService {
     private AccountRepo accountRepo;
 
     public boolean login(Account account){
+        System.out.println(accountRepo.search(account).size()) ;
         return accountRepo.search(account).size() == 1;
     }
 }
