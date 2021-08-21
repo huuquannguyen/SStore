@@ -3,7 +3,6 @@ package q.tiger.sstore.reposirory;
 import java.util.List;
 import java.util.Optional;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -24,17 +23,18 @@ public class AccountRepo implements Dao<Account> {
         return acc;
     };
 
-
     @Override
     public List<Account> search(Account account) {
-        String sql = "SELECT * from account WHERE username = ('" + account.getUsername() + " ')and password = ('" + account.getPassword() + "')";
+        String sql = "SELECT * from account WHERE username = ('" + account.getUsername() + "')and password = ('"
+                + account.getPassword() + "')";
+        System.out.println(sql);
         return jdbcTemplate.query(sql, rowMapper);
     }
 
     @Override
     public void add(Account t) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
@@ -46,12 +46,12 @@ public class AccountRepo implements Dao<Account> {
     @Override
     public void update(Account t, int id) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
     public void delete(int id) {
         // TODO Auto-generated method stub
-        
+
     }
 }
